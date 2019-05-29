@@ -12,10 +12,13 @@ width = 1                                        #it creates the width of the ba
 fig, ax = plt.subplots()                        #This then creats the bar plot
 rects1 = ax.bar(x, freq, width, color='g')      # this creates the bars
 
+explanation = '\nThis chart shows the money saved on energy that was used at Andover High each day of the week since the year 2016 to 2018\n'
+
 
 ax.set_ylim(0,20)                               #this sets the window size
 ax.set_ylabel('Cost')                           #this sets the title, the xticks, the y label and the xtick labels
-ax.set_title('HS Main (kWh)')
+ax.set_xlabel(explanation)
+ax.set_title('HS Main (kWh)\nAverage savings per day over 2016: Electricity used by AHS between 23:00 hrs and 4:00 hrs')
 ax.set_xticks(x)
 ax.set_xticklabels(('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'))
 
@@ -26,3 +29,5 @@ def autolabel(rects):                           #this then annotates the bar plo
 
 autolabel(rects1)                               # this calls the annotations
 plt.show()
+
+'''Andover High has saved $13.41 each day of the year since 2016'''
