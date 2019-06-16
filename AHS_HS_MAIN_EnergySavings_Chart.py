@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from datetime import datetime
+import matplotlib.ticker as mtick
 
 ahs_energy_DIFF = pd.read_csv(r"C:\Users\shrey\OneDrive\Documents\5 Programming\Energize\Learning Pandas\averageEnergyDIFF.csv")
 freq = ahs_energy_DIFF['HS Main (kWh)'].tolist() #This takes the data of the price changes and makes the column that are to be plotted into lists
@@ -21,6 +22,10 @@ ax.set_xlabel(explanation)
 ax.set_title('HS Main (kWh)\nAverage savings per day over 2016: Electricity used by AHS between 23:00 hrs and 4:00 hrs')
 ax.set_xticks(x)
 ax.set_xticklabels(('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'))
+fmt = '${x:,.0f}'
+tick = mtick.StrMethodFormatter(fmt)
+ax.yaxis.set_major_formatter(tick)
+
 
 def autolabel(rects):                           #this then annotates the bar plot
     for rect in rects:
@@ -30,4 +35,3 @@ def autolabel(rects):                           #this then annotates the bar plo
 autolabel(rects1)                               # this calls the annotations
 plt.show()
 
-'''Andover High has saved $13.41 each day of the year since 2016'''
